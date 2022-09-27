@@ -1,0 +1,57 @@
+class Math
+1. Combien d‘attributs possède cette classe ?
+2 attributs
+
+2. Quelle est la particularité des attributs et des méthodes de cette classe ?
+attributs : utilisent approximation
+méthodes : généralement appellent leur équivalences de StrictMath
+
+3. Identifiez la méthode permettant de générer un nombre aléatoire compris entre 0
+et 1. 
+Donnez sa signature et indiquez s’il s’agit d’une méthode de classe ou d’instance.
+public static double random()	--> méthode de classe
+
+4. Combien il y a-t-il de méthodes nommées « max » ? Donnez leurs signatures et 
+expliquez leurs différences
+4 méthodes max - 1 pour chaque type (int, long, float, double)
+public static int max(int a, int b)
+public static long max(long a, long b)
+public static float max(float a, float b)
+public static double max(double a, double b)
+
+5. On considère les instructions suivantes:
+a) int x= Math.max(5) ;
+b) int x= Math.max(5,6) ;
+
+a) non correcte : il faut 2 arguments pour max
+b) correcte, renvoie 6
+
+---------------------------------------------------------------
+class String
+
+1. Recherchez la méthode compareTo. Donnez sa signature et précisez s’il s’agit d’une
+méthode de classe ou d’instance.
+public int compareTo(String anotherString)
+méthode d'instance
+
+2. On considère l’instruction suivante :
+String res= String.compareTo(“bonjour”) ;
+Cette instruction n’est pas correcte pour au moins deux raisons, lesquelles ?
+compareTo renvoie un int mais res est typé String
+méthode pas appelée comme une méthode de classe
+
+3. Recherchez la documentation relative à la méthode length. Donnez sa signature et
+précisez s’il s’agit d’une méthode de classe ou d’instance.
+public int length()
+méthode d'instance
+
+4. On considère la séquence d’instructions suivantes:
+String st=(“bonjour”)
+int lg= String.length(st) ;
+On souhaite affecter à la variable lg, le nombre de caractères de la chaine st.
+La deuxième instruction n’est pas correcte, expliquez pourquoi et proposez une solution
+pour la corriger.
+utilise un argument alors que la méthode n'en prend pas - méthode utilisée comme une méthode de classe
+int lg = st.length()
+
+
