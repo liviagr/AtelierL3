@@ -10,11 +10,11 @@ public class De {
 
 
     //permet de gérer l'aléatoire
-    private static Random r = new Random();
+    protected static Random r = new Random();
 
     //nom et faces du dé
     private String nom;
-    private int nbFaces = 6;
+    private int nbFaces;
 
     // gestion nombre de dés créés
     private static int nbDe = 0;
@@ -22,30 +22,30 @@ public class De {
     // constructeur nom et nombre de faces
     public De(String nom, int nbFaces) {
         nbDe++;
-        this.nom = nom;
+        // si nom n'est pas vide ou un espace
+        if (!nom.equals(" ")&& !nom.equals("")) {
+            this.nom = nom;
+        } else {
+            this.nom = "Dé n° " + nbDe;
+        }
         setNbFaces(nbFaces);
     }
 
     // constructeur seulement nom
     public De(String nom) {
-        nbDe++;
-        // nom donné est utilisé seulement s'il n'est pas vide
-        if (!nom.equals(" ")) {
-            this.nom = nom;
-        } else {
-            this.nom = "Dé n° " + nbDe;
-        }
+        this(nom,6);
+
     }
 
     // constructeur seulement nombre de faces
     public De(int nbFaces) {
-        this("Dé n° " + (nbDe+1), nbFaces);
+        this("", nbFaces);
     }
 
 
     //constructeurs
     public De() {
-        this("Dé n° " + (nbDe+1));
+        this("", 6);
     }
 
 
@@ -75,10 +75,7 @@ public class De {
         return nbDe;
     }
 
-    // getter r (pour la subclass)
-    public static Random getR() {
-        return r;
-    }
+
 
     // redéfinition de toString
     public String toString(){

@@ -17,10 +17,10 @@ public class DeMemoire extends De {
     }
 
     public int lancer(){
-        int nbGenere = getR().nextInt(this.getNbFaces()) + 1;
+        int nbGenere = r.nextInt(this.getNbFaces()) + 1;
         // tant que le nombre généré est égal au dernier nombre tiré
         while(this.dernierNbTire == nbGenere) {
-            nbGenere = getR().nextInt(this.getNbFaces()) + 1;
+            nbGenere = r.nextInt(this.getNbFaces()) + 1;
         }
         this.dernierNbTire = nbGenere;
         return nbGenere;

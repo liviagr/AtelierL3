@@ -15,7 +15,7 @@ class DePipe extends De{
     public int lancer(){
         // int aléatoire entre la différence nbFace et minimale (éviter chiffre trop grand)
         // Ajoute borne minimale et 1 pour que le résultat soit tjs > borne minimale
-        return getR().nextInt(this.getNbFaces() - borneMinimale)+borneMinimale+1;
+        return r.nextInt(this.getNbFaces() - borneMinimale)+borneMinimale+1;
 
     }
 

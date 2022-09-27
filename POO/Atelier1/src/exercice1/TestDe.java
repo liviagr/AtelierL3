@@ -8,6 +8,7 @@ public class TestDe {
         De testDe = new De();
         De testDeTout = new De("nom", 6);
         De testDeNom = new De(" ");
+        De testDeTout2 = new De("nom");
 
         // test dé pipé et mémoire
         DePipe testDePipe = new DePipe("DéPipe", 3, 1);
@@ -16,7 +17,7 @@ public class TestDe {
         // Test des getter et setter
         System.out.println(DeFace);
         System.out.println(testDeNom.getNom());
-        testDe.setNbFaces(12);
+        testDeNom.setNbFaces(12);
         System.out.println(testDeTout.getNbFaces()+ " " +testDeTout.getNom());
 
         // Test lancé de dé
@@ -31,9 +32,10 @@ public class TestDe {
         System.out.println(testDe);
         System.out.println(testDeTout);
         System.out.println(testDeNom);
+        System.out.println(testDeTout2);
 
         // test equals
-        System.out.println(testDeTout.equals(testDe));
+        System.out.println(testDeTout2.equals(testDeTout));
 
 
 
