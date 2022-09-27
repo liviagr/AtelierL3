@@ -19,13 +19,12 @@ public class De {
     // gestion nombre de dés créés
     private static int nbDe = 0;
 
-
-    //constructeurs
-    public De() {
+    // constructeur nom et nombre de faces
+    public De(String nom, int nbFaces) {
         nbDe++;
-        this.nom = "Dé n° " + nbDe;
+        this.nom = nom;
+        setNbFaces(nbFaces);
     }
-
 
     // constructeur seulement nom
     public De(String nom) {
@@ -34,20 +33,21 @@ public class De {
         if (!nom.equals(" ")) {
             this.nom = nom;
         } else {
-            this.nom = "Dé n° " + (nbDe+1);
+            this.nom = "Dé n° " + nbDe;
         }
-    }
-    // constructeur nom et nombre de faces
-    public De(String nom, int nbFaces) {
-        nbDe++;
-        this.nom = nom;
-        setNbFaces(nbFaces);
     }
 
     // constructeur seulement nombre de faces
     public De(int nbFaces) {
         this("Dé n° " + (nbDe+1), nbFaces);
     }
+
+
+    //constructeurs
+    public De() {
+        this("Dé n° " + (nbDe+1));
+    }
+
 
     //getter et setter nb Faces
     public int getNbFaces() {

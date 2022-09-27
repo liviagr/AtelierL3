@@ -10,22 +10,6 @@ public class Entier {
 
     // CONSTRUCTEURS
 
-    // constructeur par défaut
-    public Entier(){
-
-    }
-
-    // constructeurs avec les bornes
-    public Entier(int borneInferieur, int borneSuperieur) {
-        //vérification des bornes
-        if (borneInferieur < borneSuperieur) {
-            this.borneInferieur = borneInferieur;
-            this.borneSuperieur = borneSuperieur;
-        }else{
-            this.borneInferieur = borneSuperieur;
-            this.borneSuperieur = borneInferieur;
-        }
-    }
 
     // constructeur : valeur + bornes
     public Entier(int valeur, int borneInferieur, int borneSuperieur) {
@@ -39,6 +23,24 @@ public class Entier {
             this.borneSuperieur = borneInferieur;
         }
     }
+
+    // constructeurs avec les bornes
+    public Entier(int borneInferieur, int borneSuperieur) {
+        //vérification des bornes - inversion si pas dans le bon ordre
+        if (borneInferieur < borneSuperieur) {
+            this.borneInferieur = borneInferieur;
+            this.borneSuperieur = borneSuperieur;
+        } else {
+            this.borneInferieur = borneSuperieur;
+            this.borneSuperieur = borneInferieur;
+        }
+    }
+
+    // constructeur par défaut
+    public Entier(){
+
+    }
+
 
     //GETTER ET SETTER
 
@@ -99,6 +101,7 @@ public class Entier {
         }
         return this.valeur;
     }
+
 
 
 }

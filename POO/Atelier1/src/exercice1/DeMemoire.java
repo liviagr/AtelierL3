@@ -5,6 +5,9 @@ import java.util.*;
 
 public class DeMemoire extends De {
 
+
+    private int dernierNbTire = 0;
+
     // Génération liste pour gérer les nombres déjà tirés
      ArrayList<Integer> nbrTires = new ArrayList<Integer>();
 
@@ -15,10 +18,11 @@ public class DeMemoire extends De {
 
     public int lancer(){
         int nbGenere = getR().nextInt(this.getNbFaces()) + 1;
-        while(nbrTires.contains(nbGenere)) {
+        // tant que le nombre généré est égal au dernier nombre tiré
+        while(this.dernierNbTire == nbGenere) {
             nbGenere = getR().nextInt(this.getNbFaces()) + 1;
         }
-        nbrTires.add(nbGenere);
+        this.dernierNbTire = nbGenere;
         return nbGenere;
     }
 
