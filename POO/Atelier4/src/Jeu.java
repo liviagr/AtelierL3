@@ -9,10 +9,10 @@ public class Jeu {
     private static final int NB_CASE = 50;
 
     // liste des joueurs inscrits au jeu
-    private ArrayList<Joueur> listJoueurs = new ArrayList<Joueur>();
+    private ArrayList<Joueur> listJoueurs;
 
-    // liste des cases du jeu - initialise pour une longueur = 50 (index 0-49)
-    private Case[] cases = new Case[NB_CASE];
+    // liste des cases du jeu
+    private Case[] cases;
 
     // nombre de déplacements à réaliser par chaque personnage
     private final int nbEtapes;
@@ -28,6 +28,11 @@ public class Jeu {
         this.titre = titre;
         this.nbEtapes = nbEtapes;
         this.nbObstacles = nbObstacles;
+
+        this.listJoueurs = new ArrayList<Joueur>();
+
+        //initialise pour une longueur = 50 (index 0-49)
+        this.cases = new Case[NB_CASE];
     }
 
 
@@ -63,20 +68,13 @@ public class Jeu {
             // génération nb aléatoire entre 1 et NB_CASE
             int gain = (int) (Math.random() * NB_CASE) +1;
             // si c'est un multiple de 5 : création d'obstacle
-            if (i%5 == 0){
-                // vérification qu'on peut encore créer des obstacles
-                if (nbObstacleCree < this.nbObstacles){
-                    // création d'un objet obstacle
-                    Obstacle obstacle = new Obstacle(2*gain);
-                    // création d'une case à l'index i contenant un obstacle
-                    this.cases[i] = new Case(gain, obstacle);
-                    // incrémentation du nombre d'obstacles créés
-                    nbObstacleCree++;
-
-                    // Si impossibilité de créer nouvel obstacle : on crée une case normale
-                }else{
-                    cases[i] = new Case(gain);
-                }
+            if (gain%5 == 0 && nbObstacleCree < this.nbObstacles){
+                // création d'un objet obstacle
+                Obstacle obstacle = new Obstacle(2*gain);
+                // création d'une case à l'index i contenant un obstacle
+                this.cases[i] = new Case(gain, obstacle);
+                // incrémentation du nombre d'obstacles créés
+                nbObstacleCree++;
 
             // si i pas un multiple de 5 : Création case avec seulement le gain
             }else{
@@ -137,7 +135,6 @@ public class Jeu {
 
                     // si la case en question a un obstacle
                     } else if (!cases[nouvellePosition].sansObstacle()) {
-                        System.out.println(p + " case obstacle");
                         // modifie les points du joueur en fonction de la pénalité de l'obstacle
                         p.penaliser(cases[nouvellePosition].getObs().getPenalite());
                         // permet d'augmenter le nombre de déplacements si c'est un humain : évite de retomber en

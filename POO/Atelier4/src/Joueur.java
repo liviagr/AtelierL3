@@ -11,13 +11,15 @@ public class Joueur {
     private int nbPoint = 0;
 
     // permet de stocker les personnages du joueur
-    private ArrayList<Personnage> listePersos = new ArrayList<Personnage>();
+    private ArrayList<Personnage> listePersos;
 
     // Constructeur
     public Joueur(String nom) {
         nbJoueurs++;
         this.nom = nom;
         this.code += nbJoueurs;
+
+        this.listePersos = new ArrayList<Personnage>();
     }
 
     // getter nom
@@ -37,6 +39,9 @@ public class Joueur {
 
     // ajout d'un personnage à la liste du joueur
     public void ajouterPersonnage(Personnage p){
+
+        // vérification persos
+
         // ajout à la liste
         this.listePersos.add(p);
         // modification attribut propriétaire du personnage
@@ -47,7 +52,7 @@ public class Joueur {
     // modification de points - marche si nb positif ou négatif
     public void modifierPoints(int nb){
         // si la modification est supérieure à 0 : on l'applique
-        if (this.nbPoint + nb >= 0){
+        if (this.nbPoint <= nb){
             this.nbPoint += nb;
         }else{
             // Sinon le nombre de point est ramené à 0
@@ -57,12 +62,7 @@ public class Joueur {
 
     // détermine si le joueur a le droit de jouer ou non
     public boolean peutJouer(){
-        boolean jouer = false;
-        // S'il y a au moins un personnage, le joueur peut jouer
-        if (this.listePersos.size() > 0){
-            jouer = true;
-        }
-        return jouer;
+        return (!this.listePersos.isEmpty());
     }
 
     // rédéfinition toString
