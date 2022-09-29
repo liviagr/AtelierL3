@@ -17,19 +17,29 @@ abstract class Personnage {
     }
 
 
+    // getter propriétaire
+    public Joueur getProprietaire() {
+        return proprietaire;
+    }
+
     // getter position
     public int getPosition() {
         return position;
     }
 
+
+    // setter position
     public void setPosition(int position) {
         this.position = position;
     }
 
-    // setter position
     // setter propriétaire
     public void setProprietaire(Joueur proprietaire) {
-        this.proprietaire = proprietaire;
+        // vérification que le personnage n'ait pas déjà un propriétaire
+        if (this.proprietaire == null){
+            this.proprietaire = proprietaire;
+
+        }
     }
 
 

@@ -39,8 +39,9 @@ public class Jeu {
     // Méthodes
     // ajoute le joueur à la liste
     public void ajouterJoueur(Joueur j){
-        // ajout d'un joueur seulement s'il y a la place et s'il peut jouer (possède personnages)
-        if (this.listJoueurs.size() < NB_JOUEUR_MAX && j.peutJouer()){
+        // ajout d'un joueur seulement s'il y a la place, s'il peut jouer (possède personnages) et s'il n'est pas
+        // déjà dans la liste
+        if (this.listJoueurs.size() < NB_JOUEUR_MAX && j.peutJouer() && !listJoueurs.contains(j)){
             this.listJoueurs.add(j);
         }else{
             System.err.println("Erreur!");

@@ -40,12 +40,15 @@ public class Joueur {
     // ajout d'un personnage à la liste du joueur
     public void ajouterPersonnage(Personnage p){
 
-        // vérification persos
+        // vérification personnage non null + pas déjà présent dans la liste des persos du joueur + personnage n'a
+        // pas déjà un autre propriétaire
+        if (p != null && !listePersos.contains(p) && p.getProprietaire()==null){
+            // ajout à la liste
+            this.listePersos.add(p);
+            // modification attribut propriétaire du personnage
+            p.setProprietaire(this);
+        }
 
-        // ajout à la liste
-        this.listePersos.add(p);
-        // modification attribut propriétaire du personnage
-        p.setProprietaire(this);
 
     }
 
