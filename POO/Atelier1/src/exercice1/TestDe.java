@@ -22,6 +22,7 @@ public class TestDe {
 
         // Test lancé de dé
         System.out.println("Lancé de Dé " + testDeTout.lancer());
+        System.out.println("Lancé de Dé " + testDePipe.lancer());
         // test dé memoire
         for (int i = 0; i < 10;i++) {
             System.out.println("Lancé de Dé " + testDeMemoire.lancer());

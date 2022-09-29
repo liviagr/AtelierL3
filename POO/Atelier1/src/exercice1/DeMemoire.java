@@ -5,11 +5,7 @@ import java.util.*;
 
 public class DeMemoire extends De {
 
-
     private int dernierNbTire = 0;
-
-    // Génération liste pour gérer les nombres déjà tirés
-     ArrayList<Integer> nbrTires = new ArrayList<Integer>();
 
 
     public DeMemoire(String nom, int nbFaces) {

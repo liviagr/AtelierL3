@@ -70,6 +70,8 @@ public class De {
         return nom;
     }
 
+
+
     // Getter nombre de dés créés
     public static int getNbDe() {
         return nbDe;
